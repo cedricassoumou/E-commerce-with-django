@@ -12,9 +12,15 @@ Produit
 
 """
 
+
 class Produit(models.Model):
     nom = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100)
     prix = models.FloatField(default=0.0)
     quantite = models.IntegerField(default=0)
     description = models.TextField(blank=True)
     thumbnail = models.ImageField(upload_to="produits", blank=True, null=True)
+
+    def __str__(self):
+        return self.nom
+        # return f"{self.nom} ({self.quantite})"

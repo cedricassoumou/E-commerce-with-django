@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block slider %}
+<div class="main-banner-area">
+    <div class="container">
+        <div class="row custom-row no-gutters">
+            <div class="col-xl-3"></div>
+            <!-- slider area start -->
+            <div class="col-xl-6 col-lg-8">
+                <section class="slider-area">
+                    <div class="hero-slider-active slick-arrow-style slick-dot-style">
+                        <!-- single slider item start -->
+                        <div class="hero-slider-item stlder-style_2">
+                            <div class="d-flex align-items-center bg-img h-100" data-bg="assets/img/slider/home2-slide1.jpg">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="hero-slider-content hero-slider-content_2">
+                                            <h2>summer</h2>
+                                            <h1>sale 75% <br> off</h1>
+                                            <h3>kitchen tools</h3>
+                                            <a href="shop.html" class="btn-hero">shop now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- single slider item end -->
+
+                        <!-- single slider item start -->
+                        <div class="hero-slider-item stlder-style_2">
+                            <div class="d-flex align-items-center bg-img h-100" data-bg="assets/img/slider/home2-slide2.jpg">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="hero-slider-content hero-slider-content_2">
+                                            <h2>biggest</h2>
+                                            <h1>sale 75% <br> off</h1>
+                                            <h3>cookware sets</h3>
+                                            <a href="shop.html" class="btn-hero">shop now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- single slider item start -->
+                    </div>
+                </section>
+            </div>
+            <!-- slider area end -->
+
+            <!-- banner-statistics-area start -->
+            <div class="col-xl-3 col-lg-4">
+                <div class="row no-gutters">
+                    <div class="col-md-12 col-sm-6">
+                        <div class="img-container">
+                            <a href="#"><img src="assets/img/banner/img1_home2.jpg" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-6">
+                        <div class="img-container">
+                            <a href="#"><img src="assets/img/banner/img2_home2.jpg" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- banner-statistics-area end -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- most viewed product area start -->
+        <section class="most-viewed-products pt-46 pb-50">
+            <div class="container">
+                <div class="deals-wrapper p-0">
+                    <div class="row">
+                        <!-- new product area start -->
+                        <div class="col-12">
+                            <div class="section-header-inner_2">
+                                <div class="section-title-deals">
+                                    <h4 style="text-transform: capitalize">ça peut vous interesser</h4>
+                                </div>
+                                <div class="slick-append slick-append-style_2"></div>
+                            </div>
+                            <div class="product-item-wrapper most-viewed bg-white">
+                                <div class="most-viewed-carousel">
+                                    {% for produit in produits %}
+                                    <!-- product item start -->
+                                    <div class="product-slide-item">
+                                        <div class="product-item mb-0">
+                                            <div class="product-thumb">
+                                                <a href="product-details.html">
+                                                    <img class="pri-img" src="{{ produit.thumbnail.url }}" alt="" style="height: 278px !important; width: 278px !important;">
+                                                    <img class="sec-img" src="{{ produit.thumbnail.url }}" alt="" style="height: 278px !important; width: 278px !important;">
+                                                </a>
+                                                <div class="add-to-links">
+                                                    <a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="ion-android-favorite-outline"></i></a>
+                                                    <a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="ion-stats-bars"></i></a>
+                                                    <a href="#" data-toggle="modal" data-target="#quick_view"><span data-toggle="tooltip" title="Quick View"><i class="ion-eye"></i></span></a>
+                                                </div>
+                                            </div>
+                                            <div class="product-content p-0">
+                                                <h5 class="product-name pb-0"><a href="{% url 'detail_produit' slug=produit.slug %}">{{ produit.nom }}</a></h5>
+                                                <div class="price-box">
+                                                    <span class="price-regular">{{ produit.prix }}</span>
+                                                </div>
+                                                <div class="product-item-action">
+                                                    <a class="btn btn-cart" href="cart.html"><i class="ion-bag"></i> Ajouter au Panier</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- product item start -->
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- new product area start -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- most viewed product area end -->
+{% endblock %}
