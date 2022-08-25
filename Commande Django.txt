@@ -1,0 +1,109 @@
+Bonjour à Tous, Je suis Cedric Assoumou Dev App Python
+Je met a votre disposition le guide d'installation Django sur Windows.
+
+Tout d'abord, commençons a installer Python sur notre machine s'il n'est pas encore
+installé.
+Après l'installation, on passe a la verification de Python 
+>python --version
+
+
+Nous allons creer un environement virtuel dans le dossier où nous souhaitons installer 
+Django
+>python -m venv .env
+
+Une fois l'environement virtuel installé, nous allons activer l'environement pour 
+continuer notre installation django
+>source .env/Scripts/activate
+
+Après activation, nous allons faire la mise à jour de "pip" si la version est ancienne
+>pip install --upgrade
+
+Enfin nous passons a l'installation de Django
+>pip install django==3.1.6(version)
+
+Verifions si django a bien été installé
+>python -m django --version
+
+Pour garder en memoire les bibliotèque qu'on a installé ainsi que les versions precises
+On va geler notre environement virtuel dans un fichier .txt
+>pip freeze > requirements.txt
+
+Afficher le contenu du fichier requirements (cat ou more)
+>cat requirements.text
+
+Installer tous les bibliotèque enregistrer dans le requirements.txt
+>pip install -r requirements.txt
+
+Creer un projet django
+>django-admin startproject (nom du projet)
+
+Pour lancer notre serveur, on se deplace dans le dossier où se trouve manage.py
+>python manage.py runserver
+
+Pour creer une application dans notre projet Django
+>python manage.py startapp (nom de l'app)
+
+Partie II
+
+Connexion à la base de données
+-Installation du driver MySQL Client
+>pip install mysqlclient (facultatif)
+
+-Configuration de la Base de donnée dans le fichier setting.py
+import pymysql
+pymysql.install_as_MySQLdb()
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'name_db',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306'
+    }
+}
+
+-Realiser la migration
+>python manage.py migrate 
+
+-Creation de super utilisateur 
+>python manage.py createsuperuser
+
+-Creation de migration pour une application
+>python manage.py makemigrations (nom app)
+
+PARTIE III (Creation d'une Rest API)
+#https://www.django-rest-framework.org/
+
+-Installer Djangorestframework dans notre environement virtuel .env
+>pip install djangorestframework
+
+-Serializer le model en creant un fichier serializers.py
+-Creer la classe de l'objet à sérialiser
+
+from rest_framework import serializers
+from .models import Livre
+
+class LivreSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Livre
+		fields = '__all__'
+
+installation de CSRF-Form
+https://simpleisbetterthancomplex.com/tutorial/2018/08/13/how-to-use-bootstrap-4-forms-with-django.html
+>pip install django-cripsy-forms
+
+Toutes les requetes possible en SQL avec QuerySET
+https://davit.tech/django-queryset-examples
+
+installation de tinymce (editeur)
+https://pypi.org/project/django-tinymce/
+pip install django-tinymce
+
+
+
+
+
+
+
+
