@@ -1,2 +1,2 @@
-# Crud-with-ajax
-Crud
+# Ecommerce-with-django
+Python
