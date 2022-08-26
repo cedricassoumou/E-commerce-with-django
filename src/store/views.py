@@ -9,10 +9,11 @@ def index(request):
 
     produits = Produit.objects.all()  #liste de produits
 
-    return render(request, "store/index.html", {"produits": produits})
+    return render(request, "store/index.html", {"produits": produits, "index": 1})
 
 
 def detail_produit(request, slug):
 
     detail = get_object_or_404(Produit, slug=slug)
-    return HttpResponse(detail.prix)
+
+    return render(request, "store/detail_produit.html", {"produit": detail})

@@ -169,9 +169,9 @@
                         <div class="category-toggle-wrap">
                             <div class="category-toggle">
                                 <i class="ion-android-menu"></i>
-                                shop by categories
+                                Toutes categories
                             </div>
-                            <nav class="category-menu category-menu-style_2">
+                            <nav class="category-menu category-menu-style_2" style="{% if not index %}display: none !important; {% endif %}">
                                 <ul class="categories-list">
                                     <li class="menu-item-has-children"><a href="shop.html">Fruits & Vegetables</a>
                                         <!-- Mega Category Menu Start -->
@@ -290,14 +290,7 @@
                             <!-- main menu navbar start -->
                             <nav class="desktop-menu">
                                 <ul>
-                                    <li class="active"><a href="index.html">Home <i class="fa fa-angle-down"></i></a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.html">Home version 01</a></li>
-                                            <li><a href="index-2.html">Home version 02</a></li>
-                                            <li><a href="index-3.html">Home version 03</a></li>
-                                            <li><a href="index-4.html">Home version 04</a></li>
-                                        </ul>
-                                    </li>
+                                    <li class="active"><a href="index.html">Accueil</a></li>
                                     <li><a href="#">pages <i class="fa fa-angle-down"></i></a>
                                         <ul class="megamenu dropdown">
                                             <li class="mega-title"><a href="#">column 01</a>

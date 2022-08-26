@@ -18,11 +18,9 @@ from django.contrib import admin
 from django.urls import path, include
 
 from shop import settings
-from store.views import index
+from .views import index, detail_produit
 
 urlpatterns = [
-    path('', index, name="index"),
-    path('store/', include('store.urls')),
-    path('compte/', include('compte.urls')),
-    path('admin/', admin.site.urls),
+    path('', index),
+    path('produit/<str:slug>', detail_produit, name="detail_produit"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

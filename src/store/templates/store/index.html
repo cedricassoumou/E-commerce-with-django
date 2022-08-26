@@ -89,7 +89,7 @@
                                     <div class="product-slide-item">
                                         <div class="product-item mb-0">
                                             <div class="product-thumb">
-                                                <a href="product-details.html">
+                                                <a href="{% url 'detail_produit' slug=produit.slug %}">
                                                     <img class="pri-img" src="{{ produit.thumbnail.url }}" alt="" style="height: 278px !important; width: 278px !important;">
                                                     <img class="sec-img" src="{{ produit.thumbnail.url }}" alt="" style="height: 278px !important; width: 278px !important;">
                                                 </a>
